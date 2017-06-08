@@ -1,0 +1,33 @@
+﻿@using VDS.RDF.Query;
+@using ObjectIdentificationWebApp.Ontology;
+@model List<SparqlResult>
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li><a href="AlgebraicTask">AlgebraicTask</a></li>
+        <li><a href="GeometricTask">GeometricTask</a></li>        
+    </ul>
+</div>
+
+
+
+<table style="width:100%;">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            @for (int d = 0; d < 3; d++)
+            {                
+                <td><a href="@Model[i]["subject"].ToString()">@KnowledgeBase.GetNodeString(Model[i]["label"])</a></td>
+
+                //Increment counter
+                {
+                    //Increment
+                    i++;
+                    //Check for early end condition
+                    if (i >= Model.Count) { break; }
+                }
+            }
+        </tr>
+        --i;
+    }
+</table>
