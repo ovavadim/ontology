@@ -1,0 +1,82 @@
+﻿@using VDS.RDF;
+@using VDS.RDF.Query;
+@using ObjectIdentificationWebApp.Ontology;
+@model SparqlResultSet
+
+<style>
+    table.properties {
+        border: 1px solid #DDDDDD;
+    }
+
+        table.properties td, th {
+            border: 1px solid #DDDDDD;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+</style>
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<h4>Описание:</h4>
+<div class="">
+@foreach (SparqlResult sr in Model)
+{
+    if (sr["predicate"].ToString().ToLower().EndsWith("#comment"))
+    {
+        <div>@KnowledgeBase.GetNodeString(sr["object"])</div>
+    }
+}
+</div>
+<br />
+
+<hr />
+<h4>Свойства:</h4>
+<table class="properties">
+    <tr>
+        <th>Свойство</th>
+        <th>Объект</th>
+    </tr>
+    @foreach (SparqlResult sr in Model)
+    {
+        //Get details
+        string predicateName = KnowledgeBase.GetNodeString(@sr["predicate"]);
+        string objectName = KnowledgeBase.GetNodeString(@sr["object"]);
+
+        //Determine predicate URI
+        string predicateURI = sr["predicate"].ToString();
+        if (sr["predicate"].ToString().StartsWith(KnowledgeBase.hostURI))
+        { predicateURI = "/Predicates/" + predicateName;
+        }
+
+        //Determine object URI
+        string objectURI = sr["object"].ToString();
+        /*
+        if (sr["object"].ToString().StartsWith(KnowledgeBase.hostURI))
+        { objectURI = "/Resources/" + objectName;
+        }
+        */
+        
+
+        <tr>
+            <td><a href="@predicateURI">@KnowledgeBase.GetNodeString(@sr["predLabel"])</a></td>
+
+            @if (@sr["object"].NodeType == NodeType.Uri)
+            {
+                string label;
+                try
+                {
+                    label = KnowledgeBase.GetNodeString(@sr["objLabel"]);
+                }
+                catch (VDS.RDF.RdfException e)
+                {
+                    label = objectName;
+                }
+                <td><a href="@objectURI">@label</a></td>
+            }
+            else
+            {
+                <td>@objectName</td> 
+            }
+       </tr>
+            }
+</table>

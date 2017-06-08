@@ -1,0 +1,304 @@
+﻿@prefix mpc: <http://system.mentolog.org/classes/>.
+@prefix mpp: <http://system.mentolog.org/properties/>.
+@prefix mpr: <http://system.mentolog.org/resources/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+
+rdf:type rdfs:label "Тип"@ru.
+rdfs:label rdfs:label "Надпись"@ru.
+
+mpc:Kontekst 	rdf:type 	owl:Class;
+		rdfs:label 	"Контекст"@ru.
+
+mpc:Problema 	rdf:type 	owl:Class;
+				rdfs:label 	"Проблема"@ru.
+
+mpc:Strah 	rdf:type 	owl:Class;
+			rdfs:label 	"Страх"@ru.
+
+mpc:Ustanovka 	rdf:type 	owl:Class;
+				rdfs:label 	"Установка"@ru.
+
+mpc:Vygoda 	rdf:type 	owl:Class;
+			rdfs:label 	"Выгода"@ru.
+
+mpp:daetProblemu 	rdf:type 	owl:ObjectProperty,
+                                                owl:SymmetricProperty;
+		rdfs:label 	"Создает проблему"@ru.
+
+mpp:daetStrah 	rdf:type 	owl:ObjectProperty,
+                                                owl:SymmetricProperty;
+		rdfs:label 	"Порождает страх"@ru.
+
+mpp:daetVygodu 	rdf:type 	owl:ObjectProperty,
+                                                owl:SymmetricProperty;
+		rdfs:label 	"Дает выгоду"@ru.
+
+mpp:kontekst 	rdf:type 	owl:ObjectProperty;
+		rdfs:label 	"Принадлежит контексту"@ru.
+
+mpp:sochetaetsya 	rdf:type 	owl:ObjectProperty,
+                                                owl:SymmetricProperty;
+		rdfs:label 	"Сочетается с"@ru.
+
+mpr:bytLuchshim 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть лучшим"@ru;
+                                mpp:sochetaetsya mpr:neRavny,
+                                                        mpr:bytSilnym,
+                                                        mpr:hotyatLuchshego,
+                                                        mpr:poMoemu.
+
+mpr:bytMuzhchinoj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть мужчиной"@ru;
+                                mpp:sochetaetsya mpr:bytZhenshchinoj,
+                                                        mpr:bytSilnym,
+                                                        mpr:poMoemu,
+                                                        mpr:vsemSvoboda.
+
+mpr:bytSilnym 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть сильным"@ru;
+                                mpp:sochetaetsya mpr:bytLuchshim,
+                                                        mpr:bytMuzhchinoj,
+                                                        mpr:vsemSvoboda,
+                                                        mpr:pravilno.
+
+mpr:bytSoboj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть собой"@ru;
+                                mpp:sochetaetsya mpr:estestvenno,
+                                                        mpr:vsemSvoboda,
+                                                        mpr:raznye.
+
+mpr:bytZhenshchinoj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть женщиной"@ru;
+                                mpp:sochetaetsya mpr:bytMuzhchinoj,
+                                                        mpr:estestvenno,
+                                                        mpr:poMoemu,
+                                                        mpr:neBytOdnomu.
+
+mpr:dvizhenie 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все есть движение"@ru;
+                                mpp:sochetaetsya mpr:vsemSvoboda,
+                                                        mpr:nichtozhen,
+                                                        mpr:hotyatLuchshego.
+
+mpr:estestvenno 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть естественно"@ru;
+                                mpp:sochetaetsya mpr:vseHotyatSchastya,
+                                                        mpr:hotyatLuchshego,
+                                                        mpr:prosto,
+                                                        mpr:nichtozhen.
+
+mpr:estPrichina 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"У всего есть причина"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:istina,
+                                                        mpr:svyazano,
+                                                        mpr:vysshee.
+
+mpr:estSmysl 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Во всем есть смысл"@ru;
+                                mpp:sochetaetsya mpr:istina,
+                                                        mpr:vysshee,
+                                                        mpr:pravoNaZhizn.
+
+mpr:vseHotyatSchastya 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все хотят счастья"@ru;
+                                mpp:sochetaetsya mpr:hotyatLuchshego,
+                                                        mpr:prosto,
+                                                        mpr:bytZhenshchinoj.
+
+mpr:hotyatLuchshego 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все хотят лучшего"@ru;
+                                mpp:sochetaetsya mpr:vseHotyatSchastya,
+                                                        mpr:bytLuchshim,
+                                                        mpr:lyudejNuzhnoLyubit.
+
+mpr:istina 	rdf:type 	mpc:Ustanovka,
+                                owl:NamedIndividual;
+	rdfs:label 	"Нужно стремиться к истине"@ru;
+                mpp:sochetaetsya mpr:vysshee,
+                                        mpr:estPrichina,
+                                        mpr:razumny. 
+
+mpr:kontekstNuzhnosti 	rdf:type 	mpc:Kontekst,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Контекст нужности"@ru.
+
+mpr:kontekstOdinochestva 	rdf:type 	mpc:Kontekst,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Контекст одиночества"@ru.
+
+mpr:lyudejNuzhnoLyubit 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Людей нужно любить"@ru;
+                                mpp:sochetaetsya mpr:neBytOdnomu,
+                                                        mpr:vseHotyatSchastya,
+                                                        mpr:pravoNaZhizn.
+
+mpr:neBytHuzhe 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя быть хуже других"@ru;
+                                mpp:sochetaetsya mpr:neBytSlabym.
+
+mpr:neBytOdnomu 	rdf:type 	mpc:Ustanovka,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Нельзя быть одному"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:lyudejNuzhnoLyubit,
+                                                        mpr:nravitsyaLyudyam;
+		mpp:kontekst mpr:kontekstOdinochestva,
+                                                      mpr:kontekstNuzhnosti;
+                                mpp:daetStrah mpr:strahBytPokinutym;
+                                mpp:daetVygodu mpr:yaVazhenDlyaDrugih,
+                                                            mpr:yaHoroshij,
+                                                            mpr:vsePonyatno;
+                                mpp:daetProblemu mpr:zavisimostOtLyudej,
+                                                              mpr:problemaProforientatsii,
+                                                              mpr:otkazOtVazhnogo,
+                                                              mpr:problemaNeblagodarnosti.
+
+mpr:neBytSlabym 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя быть слабым"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:neBytHuzhe.
+
+mpr:nePrichinyatBol 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя причинять боль"@ru;
+                                mpp:sochetaetsya mpr:pravoNaZhizn.
+
+mpr:neRavny 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Люди не равны"@ru;
+                                mpp:sochetaetsya mpr:bytLuchshim.
+
+mpr:neReshatZaDrugich 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя решать за других"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen.
+
+mpr:nichtozhen 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Человек по сути ничтожен"@ru;
+                                mpp:sochetaetsya mpr:estestvenno,
+                                                        mpr:neBytOdnomu,
+                                                        mpr:neReshatZaDrugich.
+
+mpr:nravitsyaLyudyam 	rdf:type 	mpc:Ustanovka,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Нужно нравиться людям"@ru;
+                                mpp:sochetaetsya mpr:neBytOdnomu.
+
+mpr:nuzhnoVerit 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно во что-то верить"@ru;
+                                mpp:sochetaetsya mpr:estSmysl,
+                                                        mpr:vysshee,
+                                                        mpr:istina.
+
+mpr:otkazOtVazhnogo 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Отказ от важного"@ru.
+
+mpr:pokoj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все стремится к покою"@ru;
+                                mpp:sochetaetsya mpr:estSmysl,
+                                                        mpr:estestvenno,
+                                                        mpr:prosto.
+
+mpr:poMoemu 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть по-моему"@ru;
+                                mpp:sochetaetsya mpr:pravilno.
+
+mpr:posleSmertiChto-toEst 	rdf:type 	mpc:Ustanovka,
+                                                owl:NamedIndividual;
+		rdfs:label 	"После смерти что-то есть"@ru.
+
+mpr:pravilno 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть правильно"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:estSmysl,
+                                                        mpr:poMoemu,
+                                                        mpr:istina.
+
+mpr:pravoNaZhizn 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все имеют право на жизнь"@ru;
+                                mpp:sochetaetsya mpr:spravedlivost,
+                                                        mpr:lyudejNuzhnoLyubit,
+                                                        mpr:nePrichinyatBol.
+
+mpr:problemaNeblagodarnosti 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Проблема неблагодарности"@ru.
+
+mpr:problemaProforientatsii 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Проблема профориентации"@ru.
+
+mpr:prosto 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть просто"@ru;
+                                mpp:sochetaetsya mpr:estestvenno,
+                                                        mpr:pokoj.
+
+mpr:raznye 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все люди разные"@ru;
+                                mpp:sochetaetsya mpr:bytSoboj,
+                                                        mpr:lyudejNuzhnoLyubit,
+                                                        mpr:neReshatZaDrugich,
+                                                        mpr:pravoNaZhizn.
+
+mpr:razumny 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Человек существо разумное"@ru;
+                                mpp:sochetaetsya mpr:istina,
+                                                        mpr:bytLuchshim,
+                                                        mpr:pravilno.
+
+mpr:spravedlivost 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть справедливо"@ru;
+                                mpp:sochetaetsya mpr:pravoNaZhizn.
+
+mpr:strahBytPokinutym 	rdf:type 	mpc:Strah,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Страх быть покинутым"@ru.
+
+mpr:svyazano 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все со всем связано"@ru;
+                                mpp:sochetaetsya mpr:estPrichina,
+                                                        mpr:vysshee,
+                                                        mpr:pokoj,
+                                                        mpr:estSmysl.
+
+mpr:ustPredel 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все имеет предел"@ru;
+			mpp:Kontekst mpr:safetyKontekst;
+                                mpp:sochetaetsya mpr:estSmysl,
+                                                        mpr:pokoj.
+
+mpr:vseHotyatSchastya 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все хотят счастья"@ru;
+                                mpp:sochetaetsya mpr:hotyatLuchshego,
+                                                        mpr:prosto,
+                                                        mpr:bytZhenshchinoj.
+
+mpr:vsemSvoboda 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Всем нужна свобода"@ru;
+                                mpp:sochetaetsya mpr:bytSilnym,
+                                                        mpr:poMoemu,
+                                                        mpr:bytSoboj.
+
+mpr:vsePonyatno 	rdf:type 	mpc:Vygoda,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Все с ними понятно"@ru.
+
+mpr:vysshee 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Есть что-то высшее"@ru;
+                                mpp:sochetaetsya mpr:death,
+                                                        mpr:svyazano,
+                                                        mpr:istina.
+
+mpr:yaHoroshij 	rdf:type 	mpc:Vygoda,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Я хороший"@ru.
+
+mpr:yaVazhenDlyaDrugih 	rdf:type 	mpc:Vygoda,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Я важен для других"@ru.
+
+mpr:zavisimostOtLyudej 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Зависимость от людей"@ru.

@@ -1,0 +1,766 @@
+﻿@prefix mpc: <http://system.mentolog.org/classes/>.
+@prefix mpp: <http://system.mentolog.org/properties/>.
+@prefix mpr: <http://system.mentolog.org/resources/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+rdf:type rdfs:label "Тип"@ru.
+rdfs:label rdfs:label "Надпись"@ru.
+
+mpc:Kontekst 	rdf:type 	owl:Class;
+		rdfs:label 	"Контекст"@ru.
+
+mpc:Povedenie 	rdf:type 	owl:Class;
+                                rdfs:label 	"Поведение"@ru.
+
+mpc:Problema 	rdf:type 	owl:Class;
+				rdfs:label 	"Проблема"@ru.
+
+mpc:Strah 	rdf:type 	owl:Class;
+			rdfs:label 	"Страх"@ru.
+
+mpc:Ustanovka 	rdf:type 	owl:Class;
+				rdfs:label 	"Установка"@ru.
+
+mpc:Vygoda 	rdf:type 	owl:Class;
+			rdfs:label 	"Выгода"@ru.
+
+mpp:daetProblemu 	rdf:type 	owl:ObjectProperty;
+		rdfs:label 	"Создает проблему"@ru.
+
+mpp:daetStrah 	rdf:type 	owl:ObjectProperty;
+		rdfs:label 	"Порождает страх"@ru.
+
+mpp:daetVygodu 	rdf:type 	owl:ObjectProperty;
+		rdfs:label 	"Дает выгоду"@ru.
+
+mpp:kontekst 	rdf:type 	owl:ObjectProperty;
+		rdfs:label 	"Принадлежит контексту"@ru.
+
+mpp:protivorechit 	rdf:type 	owl:ObjectProperty,
+                                                owl:SymmetricProperty;
+		rdfs:label 	"Противоречит"@ru.
+
+mpp:rechovka 	rdf:type 	owl:DatatypeProperty;
+		rdfs:label 	"Речовка"@ru.
+
+mpp:sochetaetsya 	rdf:type 	owl:ObjectProperty,
+                                                owl:SymmetricProperty;
+		rdfs:label 	"Сочетается с"@ru.
+
+mpr:bytLuchshim 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть лучшим"@ru;
+                                mpp:sochetaetsya mpr:neRavny,
+                                                        mpr:bytSilnym,
+                                                        mpr:hotyatLuchshego,
+                                                        mpr:poMoemu,
+														mpr:razumny;
+                                mpp:protivorechit mpr:predel,
+                                                            mpr:pravilno,
+															mpr:lyudejNuzhnoLyubit,
+															mpr:pravoNaZhizn,
+															mpr:raznye,
+															mpr:bytSoboj.
+
+mpr:bytMuzhchinoj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть мужчиной"@ru;
+                                mpp:sochetaetsya mpr:bytZhenshchinoj,
+                                                        mpr:bytSilnym,
+                                                        mpr:poMoemu,
+                                                        mpr:vsemSvoboda;
+                                mpp:protivorechit mpr:bytSoboj.
+
+mpr:bytSilnym 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть сильным"@ru;
+                                mpp:sochetaetsya mpr:bytLuchshim,
+                                                        mpr:bytMuzhchinoj,
+                                                        mpr:vsemSvoboda,
+                                                        mpr:pravilno;
+                                mpp:protivorechit mpr:bytSoboj,
+                                                            mpr:pokoj,
+                                                            mpr:nichtozhen.
+
+mpr:bytSoboj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть собой"@ru;
+                                mpp:sochetaetsya mpr:estestvenno,
+                                                        mpr:vsemSvoboda,
+                                                        mpr:raznye;
+                                mpp:protivorechit mpr:hotyatLuchshego,
+                                                            mpr:bytLuchshim,
+															mpr:bytZhenshchinoj,
+															mpr:bytSilnym,
+															mpr:bytMuzhchinoj.
+
+mpr:bytZhenshchinoj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно быть женщиной"@ru;
+                                mpp:sochetaetsya mpr:bytMuzhchinoj,
+                                                        mpr:estestvenno,
+                                                        mpr:poMoemu,
+                                                        mpr:neBytOdnomu,
+														mpr:vseHotyatSchastya;
+                                mpp:protivorechit mpr:dvizhenie,
+                                                            mpr:bytSoboj,
+                                                            mpr:pravilno.
+
+mpr:dvizhenie 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все есть движение"@ru;
+                                mpp:sochetaetsya mpr:vsemSvoboda,
+                                                        mpr:nichtozhen,
+                                                        mpr:hotyatLuchshego,
+														mpr:neBytSlabym;
+                               mpp:protivorechit mpr:istina,
+                                                           mpr:pokoj,
+                                                           mpr:predel,
+														   mpr:bytZhenshchinoj,
+														   mpr:svyazano,
+														   mpr:vysshee.
+
+mpr:estestvenno 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть естественно"@ru;
+                                mpp:sochetaetsya mpr:vseHotyatSchastya,
+                                                        mpr:hotyatLuchshego,
+                                                        mpr:prosto,
+                                                        mpr:nichtozhen,
+                                                        mpr:estPrichina,
+                                                        mpr:predel,
+														mpr:bytZhenshchinoj,
+														mpr:pokoj,
+														mpr:bytSoboj;
+                                mpp:protivorechit mpr:estSmysl,
+								                  mpr:istina,
+												  mpr:pravilno,
+												  mpr:razumny.
+
+mpr:estPrichina 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"У всего есть причина"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:istina,
+                                                        mpr:svyazano,
+                                                        mpr:vysshee,
+                                                        mpr:estestvenno.
+
+mpr:estSmysl 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Во всем есть смысл"@ru;
+                                mpp:sochetaetsya mpr:istina,
+                                                        mpr:vysshee,
+                                                        mpr:pravoNaZhizn,
+                                                        mpr:razumny,
+														mpr:nuzhnoVerit,
+														mpr:svyazano,
+														mpr:pravilno,
+														mpr:predel,
+														mpr:pokoj;
+                                mpp:protivorechit mpr:estestvenno,
+								                  mpr:vsemSvoboda.
+
+mpr:hotyatLuchshego 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все хотят лучшего"@ru;
+                                mpp:sochetaetsya mpr:vseHotyatSchastya,
+                                                        mpr:bytLuchshim,
+                                                        mpr:lyudejNuzhnoLyubit,
+                                                        mpr:dvizhenie,
+														mpr:estestvenno;
+                               mpp:protivorechit mpr:predel,
+                                                           mpr:pravilno,
+														mpr:prosto,
+														mpr:neBytOdnomu,
+														mpr:bytSoboj.
+
+mpr:istina 	rdf:type 	mpc:Ustanovka,
+                                owl:NamedIndividual;
+	rdfs:label 	"Нужно стремиться к истине"@ru;
+                mpp:sochetaetsya mpr:vysshee,
+                                        mpr:estPrichina,
+                                        mpr:razumny,
+										mpr:nuzhnoVerit,
+										mpr:pravilno,
+										mpr:estSmysl;
+                mpp:protivorechit mpr:estestvenno,
+				                  mpr:dvizhenie.
+
+mpr:kontekstDvizheniya	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст движения"@ru;
+                                mpp:rechovka 	"Не жили богато, нех... начинать"@ru,
+				"Вечный бой. Покой нам только снится"@ru,
+				"Наш пострел везде поспел"@ru,
+				"Никогда не говори никогда"@ru,
+				"Много хочешь -- мало получишь"@ru.
+
+mpr:kontekstIstiny 	rdf:type 	mpc:Kontekst,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Контекст истины"@ru;
+                                mpp:rechovka "Доверяй, но проверяй"@ru,
+                                                        "Глаза - зеркало души"@ru,
+                                                        "Ложь во благо"@ru,
+                                                         "Нечего на зеркало пенять, коль рожа крива"@ru,
+                                                         "Семь раз отмерь - один отрежь"@ru,
+                                                         "В тихом омуте черти водятся"@ru,
+                                                         "Мал золотник, да дорог"@ru,
+                                                         "Встречают по одёжке, а провожают по уму"@ru,
+                                                         "Не всё то золото, что блестит"@ru,
+                                                         "Мал клоп да вонюч"@ru.
+
+mpr:kontekstKonechnosti	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст конечности"@ru;
+                                mpp:rechovka 	"Куй железо, пока горячо"@ru,
+				"Береги честь смолоду"@ru,
+				"Всему есть предел"@ru,
+				"Сколько веревочке ни виться, кончику быть"@ru.
+
+mpr:kontekstLuchshesti	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст лучшести"@ru;
+                                mpp:rechovka 	"Что русскому хорошо, то немцу смерть"@ru,
+				"Сами с усами"@ru,
+				"Собака лает - караван идет"@ru,
+				"Кто с мечом к нам придет от меча и погибнет"@ru,
+				"Яйца курицу не учат"@ru,
+				"Дуракам везёт"@ru,
+				"На дураков не обижаются"@ru,
+				"Курица – не птица, баба – не человек"@ru,
+				"Широкая русская душа (таинственная и непонятная)"@ru.
+
+mpr:kontekstOtnoshenij	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст отношений"@ru;
+                                mpp:rechovka 	"Относись к людям так как к самому себе"@ru,
+ 	 	 	 	"С милым рай и в шалаше"@ru,
+                                                         	"Любить – значит жалеть"@ru,
+ 	                                                "Милые бранятся -- только тешутся"@ru,
+                                 	                "Бьет -- значит любит"@ru,
+                                                 	"Не отрекаются любя"@ru,
+ 	                                                "Путь к сердцу мужчины лежит через желудок"@ru,
+                                                 	"Скажи мне, кто твой друг, и я скажу, кто ты"@ru,
+                                                 	"Если друг оказался вдруг"@ru,
+                                                 	"В тесноте, да не в обиде"@ru,
+                                                 	"Старый друг лучше новых двух"@ru.
+
+
+
+
+mpr:kontekstOtvetstvennosti	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст ответственности"@ru;
+                                mpp:rechovka 	"Сделал дело -- гуляй смело"@ru,
+				"Любишь кататься - люби и саночки возить"@ru,
+				"Не отрекаются любя"@ru,
+				"После нас хоть потоп"@ru,
+				"Пусть лошадь думает - у нее голова большая"@ru,
+				"Хочется, да колется"@ru,
+				"Хозяин - барин"@ru,
+				"Назвался груздем - полезай в кузов"@ru,
+				"Утро вечера мудреней"@ru,
+				"На воре шапка горит"@ru,
+				"Любопытной Варваре на базаре нос оторвали"@ru,
+				"На Бога надейся, а сам не плошай"@ru,
+				"Не рой другому яму - сам в неё попадёшь"@ru,
+				"Взялся за гуж - не говори что не дюж"@ru,
+				"Своя голова на плечах"@ru,
+				"У семи нянек дитя без глазу"@ru,
+				"От горшка два вершка, а уже дом в руках держит"@ru,
+				"Спасение утопающих дело рук самих утопающих"@ru,
+				"На авось надейся, а сам не плошай"@ru,
+				"Первый блин комом"@ru,
+				"Одна голова - хорошо, а две - лучше"@ru,
+				"Приедет барин - нас рассудит..."@ru,
+				"За Державу обидно..."@ru.
+
+mpr:kontekstPokoya	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст покоя"@ru;
+                                mpp:rechovka 	"Работа -- не волк, в лес не убежит"@ru,
+                                                 	"А в тюрьме щас ужин, макароны"@ru,
+				"Ниже травы, тише воды"@ru,
+				"Не было заботы -- купила баба порося"@ru,
+				"Баба с возу -- кобыле легче"@ru,
+				"Тише едешь -- дальше будешь"@ru,
+				"Лучше плохо ехать, чем хорошо идти"@ru,
+				"Горе от ума"@ru,
+				"Худой мир лучше доброй ссоры"@ru,
+				"Вечный бой. Покой нам только снится"@ru,
+				"Чем бы дитя ни тешилось, лишь бы не плакало"@ru,
+				"Бежать впереди паровоза"@ru,
+				"Для бешеной собаки сто километров не круг"@ru,
+				"Не жили богато, нех... начинай"@ru.
+
+mpr:kontekstPravilnogo	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст правильного"@ru;
+                                mpp:rechovka 	"Наглость -- второе счастье"@ru,
+				"Семеро одного не ждут"@ru,
+				"Не в силе Бог, а в правде"@ru,
+				"Дружба дружбой, а табачок врозь (а служба службой)"@ru,
+				"Береги честь смолоду"@ru,
+				"В чужой монастырь со своим уставом не ходят"@ru,
+				"Делу время -- потехе час"@ru,
+				"Всему свое время"@ru.
+
+mpr:kontekstPredskazuemosti	rdf:type	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст предсказуемости"@ru;
+                                mpp:rechovka 	"Яблоко от яблони недалеко падает"@ru,
+ 	 	 	 	"Сон в руку"@ru,
+ 	 	 	 	"От тюрьмы да от сумы не зарекайся"@ru,
+ 	 	 	 	"Готовь сани летом, а телегу зимой"@ru,
+ 	 	 	 	"Пуля дура - штык молодец"@ru,
+ 	 	 	 	"Не говори гоп, пока не перепрыгнешь"@ru,
+ 	 	 	 	"Никогда не говори никогда"@ru,
+ 	 	 	 	"Что посеешь - то и пожнешь"@ru,
+ 	 	 	 	"Дорогу осилит идущий"@ru,
+ 	 	 	 	"На воре шапка горит"@ru,
+ 	 	 	 	"Не зная броду, не суйся в воду"@ru,
+ 	 	 	 	"В тихом омуте черти водятся"@ru,
+ 	 	 	 	"Хорошо смеется тот, кто смеется последним"@ru,
+ 	 	 	 	"Не рой другому яму - сам в неё попадёшь"@ru,
+ 	 	 	 	"Не плюй в колодец – потом пригодится"@ru,
+ 	 	 	 	"Сколько веревочке ни виться, а кончику быть"@ru,
+ 	 	 	 	"Скупой платит дважды"@ru,
+ 	 	 	 	"Скажи мне, кто твой друг, и я скажу, кто ты"@ru,
+	 	 	 	"Человек предполагает, а Бог располагает"@ru,
+	 	 	 	"Каков поп - такой и приход"@ru,
+	 	 	 	"Много хочешь - мало получишь"@ru,
+	 	 	 	"Дуракам везёт"@ru.
+
+
+
+mpr:kontekstPrirodnosti	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст природности"@ru;
+                                mpp:rechovka 	"Уплетать за обе щеки"@ru,
+ 	 	 	 	"На седьмом небе от счастья"@ru,
+                                                         	"Путь к сердцу мужчины лежит через желудок"@ru,
+ 	                                                "Работа - не волк, в лес не убежит"@ru,
+                 	                                "Все полезно, что в рот полезло"@ru,
+                                 	                "Пиво без водки - деньги на ветер"@ru,
+                                                 	"Лучше плохо ехать, чем хорошо идти"@ru,
+ 	                                                "Хочется, да колется"@ru,
+                                                 	"Делу время, потехе час"@ru.
+
+mpr:kontekstProstoty	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст простоты"@ru;
+                                mpp:rechovka 	"Украл, выпил -- в тюрьму"@ru,
+				"Горячее сырым не бывает"@ru,
+				"Без труда не вынуть и рыбку из пруда"@ru,
+				"Не потопаешь -- не полопаешь"@ru,
+				"Наглость -- второе счастье"@ru,
+				"Кто не работает, тот не ест"@ru,
+				"Пусть лошадь думает: у нее голова большая"@ru,
+				"Под лежачий камень вода не течет"@ru,
+				"Убить двух зайцев"@ru,
+				"Как свои пять пальцев"@ru.
+
+mpr:kontekstRazumnosti	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст разумности"@ru;
+                                mpp:rechovka 	"Без царя в голове"@ru,
+				"Заставь дурака Богу молиться -- он и лоб расшибет"@ru,
+				"Собака лает -- караван идет"@ru,
+				"Готовь сани летом, а телегу зимой"@ru,
+				"Нет ума -- иди работать"@ru,
+				"Нечего на зеркало пенять, коль рожа крива"@ru,
+				"Тише едешь -- дальше будешь"@ru,
+				"Копейка рубль бережет"@ru,
+				"Куй железо, пока горячо"@ru,
+				"Не зная броду, не суйся в воду"@ru,
+				"Встречают по одежке, а провожают по уму"@ru,
+				"Своя голова на плечах"@ru,
+				"Не плюй в колодец: потом пригодится"@ru,
+				"Дуракам везет"@ru,
+				"На дураков не обижаются"@ru,
+				"Для бешеной собаки сто километров не круг"@ru,
+				"Умом Россию не понять..."@ru.
+
+mpr:kontekstSily	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст силы"@ru;
+                                mpp:rechovka 	"Сила есть - ума не надо"@ru,
+ 	 	 	 	"Собака лает - караван идет"@ru,
+                                                         	"Добро должно быть с кулаками"@ru,
+ 	                                                "Соберись, тряпка!"@ru,
+                 	                                "Волков бояться - в лес не ходить"@ru.
+
+mpr:kontekstSpravedlivosti 	rdf:type 	mpc:Kontekst,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Контекст справедливости"@ru;
+                                mpp:rechovka "Сколько веревочке ни виться, кончику быть"@ru,
+                                                        "Бог не Тимошка - видит немножко"@ru,
+                                                        "Не потопаешь - не полопаешь"@ru,
+                                                        "Относись к людям так как к самому себе"@ru,
+                                                         "Кто не работает, тот не ест"@ru,
+                                                         "Кто первый встал, тому и тапки"@ru,
+                                                         "Семеро одного не ждут"@ru,
+                                                         "Ты мне - я тебе. (Баш на баш)"@ru,
+                                                         "Вольному - воля, спасенному - рай"@ru,
+                                                         "Не рой другому яму - сам в неё попадёшь"@ru,
+                                                         "Дуракам везёт"@ru.
+
+mpr:kontekstSvobody	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст свободы"@ru;
+                                mpp:rechovka 	"Сделал дело -- гуляй смело"@ru,
+				"Работа -- не волк, в лес не убежит"@ru,
+				"Каждый др...т как он хочет"@ru,
+				"Пиво без водки -- деньги на ветер"@ru,
+				"Не любо -- не слушай. А врать не мешай"@ru,
+				"На все четыре стороны"@ru,
+				"Жить в четырех стенах"@ru.
+
+mpr:kontekstUnikalnosti	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст уникальности"@ru;
+                                mpp:rechovka 	"Мал золотник, да дорог"@ru,
+				"Умом Россию не понять..."@ru,
+				"Я - последняя буква в алфавите!"@ru,
+				"Ниже травы, тише воды"@ru,
+				"Много хочешь - мало получишь"@ru,
+				"Кошка скребёт на свой хребёт"@ru.
+
+mpr:kontekstVlasti	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст власти"@ru;
+                                mpp:rechovka 	"Хочешь жить -- умей вертеться"@ru,
+ 	 	 	 	"Яблоко от яблони недалеко падает"@ru,
+                                                         	"Человек предполагает, а Бог располагает"@ru,
+ 	                                                "От тюрьмы да от сумы не зарекайся"@ru,
+                                 	                "На каждый роток не накинешь платок"@ru,
+                                                 	"Сила есть - ума не надо"@ru,
+ 	                                                "Не подмажешь – не поедешь"@ru,
+                                                 	"Куй железо, пока горячо"@ru,
+                                                 	"Всяк сверчок знай свой шесток"@ru,
+                                                 	"Приедет барин - нас рассудит…"@ru,
+                                                 	"Я - последняя буква в алфавите!"@ru,
+                                                 	"На Бога надейся, а сам не плошай"@ru,
+                                                 	"Муж – голова, жена - шея"@ru,
+                                                 	"Закон, что дышло: куда повернул, туда и вышло"@ru,
+                                                 	"Спасение утопающих дело рук самих утопающих"@ru,
+                                                 	"На авось надейся, а сам не плошай"@ru,
+                                                 	"Нет бумажки - нет человека"@ru,
+                                                 	"Бьет -- значит любит"@ru,
+                                                 	"Молчание - знак согласия"@ru,
+                                                 	"Против лома нет приёма"@ru.
+
+
+
+
+mpr:kontekstVoli	rdf:type	 	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст воли"@ru;
+                                mpp:rechovka 	"На каждый роток не накинешь платок"@ru,
+ 	 	 	 	"Пуля дура - штык молодец"@ru,
+                                                         	"Кто с мечом к нам придет от меча и погибнет"@ru,
+ 	                                                "Семь раз отмерь - один отрежь"@ru,
+                 	                                "Хозяин - барин"@ru,
+                                 	                "Утро вечера мудреней"@ru,
+                                                 	"Хорошо смеется тот, кто смеется последним"@ru,
+ 	                                                "Муж – голова, жена - шея"@ru,
+                                                 	"От горшка два вершка, а уже дом в руках держит"@ru,
+                                                 	"Всему своё время"@ru,
+                                                 	"Терпение и труд все перетрут"@ru,
+                                                 	"Без труда не вынуть и рыбку из пруда"@ru,
+                                                 	"Чем дальше в лес, тем больше дров"@ru,
+                                                 	"Муж – голова, жена - шея"@ru,
+                                                 	"Закон, что дышло: куда повернул, туда и вышло"@ru,
+                                                 	"Дорогу осилит идущий"@ru,
+                                                 	"Под лежащий камень вода не течет"@ru,
+                                                 	"Хорошо смеется тот, кто смеется последним"@ru,
+                                                 	"Глаза боятся, руки делают"@ru,
+                                                 	"Для бешеной собаки сто километров не круг"@ru.
+
+
+
+
+mpr:kontekstVygody 	rdf:type 	mpc:Kontekst,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Контекст выгоды"@ru;
+                                mpp:rechovka "От добра добра не ищут"@ru,
+                                                        "Хочешь жить -- умей вертеться"@ru,
+                                                        "Все полезно, что в рот полезло"@ru,
+                                                        "Ложь во благо"@ru,
+                                                         "Лес рубят- щепки летят"@ru,
+                                                         "Хоть горшком назови - только в печь не ставь"@ru,
+                                                         "Чем дальше в лес, тем больше дров"@ru,
+                                                         "Волков бояться - в лес не ходить"@ru,
+                                                         "Не подмажешь - не поедешь"@ru,
+                                                         "Кто первый встал, тому и тапки"@ru,
+                                                         "В большой семье не щелкай клювом"@ru,
+                                                         "Копейка рубль бережет"@ru,
+                                                         "После нас хоть потоп"@ru,
+                                                         "В тесноте, да не в обиде"@ru,
+                                                         "Ты мне - я тебе. (Баш на баш)"@ru,
+                                                         "Не любо - не слушай. А врать не мешай"@ru,
+                                                         "Дружба дружбой, а табачок врозь (а служба службой)"@ru,
+                                                         "Много хочешь - мало получишь"@ru,
+                                                         "С паршивой овцы хоть шерсти клок"@ru,
+                                                         "Лучше синица в руках, чем журавль в небе"@ru,
+                                                         "Свято место пусто не бывает"@ru,
+                                                         "Закон, что дышло: куда повернул, туда и вышло"@ru,
+                                                         "Не в деньгах счастье"@ru,                                                         
+                                                         "Кто не рискует, тот не пьет шампанского"@ru,
+                                                         "Сидеть меж двух стульев"@ru,
+                                                         "Скупой платит дважды"@ru,
+                                                         "Убить двух зайцев"@ru,
+                                                         "Не жили богато, не х.. начинать"@ru,
+                                                         "Готовь сани летом, а телегу зимой"@ru,
+                                                         "Не плюй в колодец – потом пригодится"@ru.
+
+mpr:kontekstVysshego	rdf:type	mpc:Kontekst,
+                                                	owl:NamedIndividual;
+		rdfs:label	 	"Контекст высшего"@ru;
+                                mpp:rechovka 	"Человек предполагает, а Бог располагает"@ru,
+ 	 	 	 	"Бог не Тимошка - видит немножко"@ru.
+
+
+
+
+mpr:lyudejNuzhnoLyubit 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Людей нужно любить"@ru;
+                                mpp:sochetaetsya mpr:neBytOdnomu,
+                                                        mpr:vseHotyatSchastya,
+                                                        mpr:pravoNaZhizn,
+                                                        mpr:nichtozhen,
+														mpr:raznye,
+														mpr:hotyatLuchshego;
+                                mpp:protivorechit mpr:bytLuchshim,
+                                                            mpr:pravilno.
+
+mpr:neBytHuzhe 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя быть хуже других"@ru;
+                                mpp:sochetaetsya mpr:neBytSlabym.
+
+mpr:neBytOdnomu 	rdf:type 	mpc:Ustanovka,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Нельзя быть одному"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:lyudejNuzhnoLyubit,
+                                                        mpr:nravitsyaLyudyam,
+														mpr:bytZhenshchinoj;
+                                mpp:protivorechit mpr:hotyatLuchshego;
+		mpp:kontekst mpr:kontekstOdinochestva,
+                                                      mpr:kontekstNuzhnosti;
+                                mpp:daetStrah mpr:strahBytPokinutym;
+                                mpp:daetVygodu mpr:yaVazhenDlyaDrugih,
+                                                            mpr:yaHoroshij,
+                                                            mpr:vsePonyatno;
+                                mpp:daetProblemu mpr:zavisimostOtLyudej,
+                                                              mpr:problemaProforientatsii,
+                                                              mpr:otkazOtVazhnogo,
+                                                              mpr:problemaNeblagodarnosti.
+
+mpr:neBytSlabym 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя быть слабым"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:neBytHuzhe,
+                                                        mpr:dvizhenie;
+                                mpp:protivorechit mpr:pravoNaZhizn.
+
+mpr:nePrichinyatBol 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя причинять боль"@ru;
+                                mpp:sochetaetsya mpr:pravoNaZhizn.
+
+mpr:neRavny 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Люди не равны"@ru;
+                                mpp:sochetaetsya mpr:bytLuchshim.
+
+mpr:neReshatZaDrugich 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нельзя решать за других"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+								                 mpr:raznye.
+
+mpr:nichtozhen 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Человек по сути ничтожен"@ru;
+                                mpp:sochetaetsya mpr:estestvenno,
+                                                        mpr:neBytOdnomu,
+                                                        mpr:neReshatZaDrugich,
+                                                        mpr:estPrichina,
+                                                        mpr:lyudejNuzhnoLyubit,
+														mpr:neBytSlabym,
+														mpr:dvizhenie,
+														mpr:pravilno,
+														mpr:vysshee,
+														mpr:predel;
+                                mpp:protivorechit mpr:svyazano,
+								                  mpr:bytSilnym.
+
+mpr:nravitsyaLyudyam 	rdf:type 	mpc:Ustanovka,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Нужно нравиться людям"@ru;
+                                mpp:sochetaetsya mpr:neBytOdnomu.
+
+mpr:nuzhnoVerit 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Нужно во что-то верить"@ru;
+                                mpp:sochetaetsya mpr:estSmysl,
+                                                        mpr:vysshee,
+                                                        mpr:istina;
+                                mpp:protivorechit mpr:razumny.
+
+mpr:otkazOtVazhnogo 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Отказ от важного"@ru.
+
+mpr:pokoj 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все стремится к покою"@ru;
+                                mpp:sochetaetsya mpr:estSmysl,
+                                                        mpr:estestvenno,
+                                                        mpr:prosto,
+														mpr:svyazano,
+														mpr:predel;
+                                mpp:protivorechit mpr:dvizhenie,
+								                  mpr:bytSilnym.
+
+mpr:poMoemu 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть по-моему"@ru;
+                                mpp:sochetaetsya mpr:pravilno,
+								                 mpr:bytZhenshchinoj,
+												 mpr:bytLuchshim,
+												 mpr:vsemSvoboda,
+												 mpr:bytMuzhchinoj.
+
+mpr:posleSmertiChto-toEst 	rdf:type 	mpc:Ustanovka,
+                                                owl:NamedIndividual;
+		rdfs:label 	"После смерти что-то есть"@ru;
+		mpp:sochetaetsya mpr:vysshee.
+
+mpr:pravilno 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть правильно"@ru;
+                                mpp:sochetaetsya mpr:nichtozhen,
+                                                        mpr:estSmysl,
+                                                        mpr:poMoemu,
+                                                        mpr:istina,
+														mpr:bytSilnym;
+                                mpp:protivorechit mpr:estestvenno,
+                                                            mpr:razumny,
+                                                            mpr:hotyatLuchshego,
+                                                            mpr:lyudejNuzhnoLyubit,
+															mpr:bytZhenshchinoj,
+															mpr:bytLuchshim,
+															mpr:vsemSvoboda,
+															mpr:prosto,
+															mpr:vseHotyatSchastya,
+															mpr:raznye.
+
+mpr:pravoNaZhizn 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все имеют право на жизнь"@ru;
+                                mpp:sochetaetsya mpr:spravedlivost,
+                                                        mpr:lyudejNuzhnoLyubit,
+                                                        mpr:nePrichinyatBol,
+														mpr:raznye,
+														mpr:estSmysl;
+                                mpp:protivorechit mpr:bytLuchshim,
+								                  mpr:neBytSlabym.
+
+mpr:predel 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все имеет предел"@ru;
+                                mpp:sochetaetsya mpr:estSmysl,
+                                                        mpr:pokoj,
+                                                        mpr:nichtozhen,
+														mpr:estestvenno;
+                                mpp:protivorechit mpr:dvizhenie,
+								                  mpr:bytLuchshim,
+												  mpr:vsemSvoboda,
+												  mpr:hotyatLuchshego.
+
+mpr:problemaNeblagodarnosti 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Проблема неблагодарности"@ru.
+
+mpr:problemaProforientatsii 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Проблема профориентации"@ru.
+
+mpr:prosto 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть просто"@ru;
+                                mpp:sochetaetsya mpr:estestvenno,
+                                                        mpr:pokoj,
+														mpr:vseHotyatSchastya;
+                                mpp:protivorechit mpr:hotyatLuchshego,
+                                                            mpr:pravilno.
+
+mpr:raznye 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все люди разные"@ru;
+                                mpp:sochetaetsya mpr:bytSoboj,
+                                                        mpr:lyudejNuzhnoLyubit,
+                                                        mpr:neReshatZaDrugich,
+                                                        mpr:pravoNaZhizn;
+                                mpp:protivorechit mpr:pravilno,
+                                                            mpr:bytLuchshim.
+
+mpr:razumny 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Человек существо разумное"@ru;
+                                mpp:sochetaetsya mpr:istina,
+                                                        mpr:bytLuchshim,
+														mpr:estSmysl;
+                                mpp:protivorechit mpr:pravilno,
+                                                            mpr:estestvenno,
+															mpr:nuzhnoVerit.
+
+mpr:spravedlivost 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все должно быть справедливо"@ru;
+                                mpp:sochetaetsya 	mpr:pravoNaZhizn,
+								                    mpr:svyazano,
+													mpr:vysshee.
+
+mpr:strahBytPokinutym 	rdf:type 	mpc:Strah,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Страх быть покинутым"@ru.
+
+mpr:svyazano 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все со всем связано"@ru;
+                                mpp:sochetaetsya mpr:estPrichina,
+                                                        mpr:vysshee,
+                                                        mpr:pokoj,
+                                                        mpr:estSmysl,
+                                                        mpr:spravedlivost;
+                                mpp:protivorechit mpr:dvizhenie,
+								                  mpr:nichtozhen.
+
+mpr:vseHotyatSchastya 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Все хотят счастья"@ru;
+                                mpp:sochetaetsya mpr:hotyatLuchshego,
+                                                        mpr:prosto,
+                                                        mpr:bytZhenshchinoj,
+														mpr:lyudejNuzhnoLyubit,
+														mpr:estestvenno;
+                                mpp:protivorechit mpr:pravilno.
+
+mpr:vsemSvoboda 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Всем нужна свобода"@ru;
+                                mpp:sochetaetsya mpr:bytSilnym,
+                                                        mpr:poMoemu,
+                                                        mpr:bytSoboj,
+														mpr:dvizhenie,
+														mpr:bytMuzhchinoj;
+                                mpp:protivorechit mpr:predel,
+                                                            mpr:pravilno,
+                                                            mpr:estSmysl.
+
+mpr:vsePonyatno 	rdf:type 	mpc:Vygoda,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Все с ними понятно"@ru.
+
+mpr:vysshee 	rdf:type 	mpc:Ustanovka,  								owl:NamedIndividual;
+		rdfs:label 	"Есть что-то высшее"@ru;
+                                mpp:sochetaetsya mpr:posleSmertiChto-toEst,
+                                                        mpr:svyazano,
+                                                        mpr:istina,
+                                                        mpr:nichtozhen,
+														mpr:nuzhnoVerit,
+														mpr:estPrichina,
+														mpr:estSmysl,
+                                                        mpr:spravedlivost;
+                                mpp:protivorechit mpr:dvizhenie.
+
+mpr:yaHoroshij 	rdf:type 	mpc:Vygoda,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Я хороший"@ru.
+
+mpr:yaVazhenDlyaDrugih 	rdf:type 	mpc:Vygoda,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Я важен для других"@ru.
+
+mpr:zavisimostOtLyudej 	rdf:type 	mpc:Problema,
+                                                owl:NamedIndividual;
+		rdfs:label 	"Зависимость от людей"@ru.
