@@ -17,7 +17,7 @@
 
 <h2>@ViewBag.Title</h2>
 <hr />
-<h4>Описание:</h4>
+<h4></h4>
 <div class="">
 @foreach (SparqlResult sr in Model)
 {
@@ -29,12 +29,21 @@
 </div>
 <br />
 
+
+
+   <img src = "@(KnowledgeBase.hostURI + "Pics/" + ViewBag.Name + ".png")">
+
+
+
+
+
+
 <hr />
-<h4>Свойства:</h4>
+<h4>Properties:</h4>
 <table class="properties">
     <tr>
-        <th>Свойство</th>
-        <th>Объект</th>
+        <th>Property</th>
+        <th>Object</th>
     </tr>
     @foreach (SparqlResult sr in Model)
     {
