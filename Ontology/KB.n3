@@ -1,403 +1,684 @@
-﻿@prefix mathc: <http://ontology.tom.ru/classes/>.
-@prefix mathp: <http://ontology.tom.ru/properties/>.
-@prefix mathr: <http://ontology.tom.ru/resources/>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix dbo: <http://dbpedia.org/ontology/>.
-rdf:type rdfs:label "Type"@en.
-rdfs:label rdfs:label "Label"@en.
-
-mathc:AlgebraicTask 	rdf:type 	owl:Class;
-		rdfs:label 	"Algebraic task"@en;
-		rdfs:subClassOf mathc:Task.
-
-mathc:Formula 	rdf:type 	owl:Class;
-		rdfs:label 	"Formula"@en.
-
-mathc:GeometricTask 	rdf:type 	owl:Class;
-		rdfs:label 	"Geometric task"@en;
-		rdfs:subClassOf mathc:Task.
-
-mathc:Operation 	rdf:type 	owl:Class;
-		rdfs:label 	"Operation"@en.
-
-mathc:Rule 	rdf:type 	owl:Class;
-		rdfs:label 	"Rule"@en.
-
-mathc:StatisticTask 	rdf:type 	owl:Class;
-		rdfs:label 	"Statistic task"@en;
-		rdfs:subClassOf mathc:Task.
-
-mathc:Task 	rdf:type 	owl:Class;
-		rdfs:label 	"Task"@en.
-
-mathp:requiresHaving 	rdf:type 	owl:ObjectProperty;
-		rdfs:label 	"Requires Having"@en.
-
-mathp:requiresKnowledge 	rdf:type 	owl:ObjectProperty;
-		rdfs:label 	"Requires Knowledge"@en.
-
-mathr:addOrSubbFractions 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Add or subb fractions"@en.
-
-mathr:addOrSubbNumber 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Add or subb number"@en.
-
-mathr:areaOfCircle 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Area of circle"@en.
-
-mathr:areaOfCircumscribedQuadrilateral 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Area of circumscribed quadrilateral"@en.
-
-mathr:areaOfParallelogram 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Area of parallelogram"@en.
-
-mathr:areaOfRectangle 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Area of rectangle"@en.
-
-mathr:areaOfRegularPolygon 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Area of regular polygon"@en.
-
-mathr:areaOfTrapezoid 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Trapezoid area"@en.
-
-mathr:areaOfTriangle 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Area of triangle"@en.
-
-mathr:calculateBearing 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate bearing"@en.
-
-mathr:calculateComplementaryAngle 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate complementary angle"@en.
-
-mathr:calculateDirectProportion 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate direct proportion"@en.
-
-mathr:calculateDomainOfFunction 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate Function's domain"@en.
-
-mathr:calculateIntersectionPointOfGraphs 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate intersection point of graphs"@en.
-
-mathr:calculateInverseProportion 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate inverse proportion"@en.
-
-mathr:calculateMean 	rdf:type 	mathc:StatisticTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate mean"@en.
-
-mathr:calculatePercentage 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate percentage"@en.
-
-mathr:calculatePieChartSectorAngle 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate pie chart sector angle"@en.
-
-mathr:calculateRatio 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate ratio"@en.
-
-mathr:calculateSupplementaryAngle 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Calculate supplementary angle"@en.
-
-mathr:checkIfDivisible 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Check if number is divisible by something"@en;
-                                mathp:requiresKnowledge mathr:divisibility,
-                                                                          mathr:formulaIntegerDivision.
-
-mathr:checkIfOddEven 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Check if number is even or odd"@en;
-                                mathp:requiresKnowledge mathr:formulaIntegerDivision,
-                                                                          mathr:ruleOddEven.
-
-mathr:checkIfPointBelongsToGraph 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Check, if point belongs to graph"@en.
-
-mathr:checkIfPrime 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Check if number is prime"@en;
-                                mathp:requiresKnowledge mathr:divisibility.
-
-mathr:collectLikeTerms 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Collect like terms"@en.
-
-mathr:compareFractions 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Compare fractions"@en.
-
-mathr:compareFractionsDifferentDenom 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Compare fractions with different denominators"@en.
-
-mathr:convertFracsToTheSameDenom 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Convert fraction to have the same denominators"@en.
-
-mathr:convertUnits 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Convert units"@en.
-
-mathr:cosineRule 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Cosine rule"@en.
-
-mathr:divisibility 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Divisibility rules"@en.
-
-mathr:eliminateSurdInDenom 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Eliminate surd in denominator"@en.
-
-mathr:eliminateVar 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Eliminate variable"@en;
-                                mathp:requiresKnowledge mathr:operateBothHandSidesOfEq.
-
-mathr:enlargeFigure 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Enlarge figure"@en.
-
-mathr:expressAndSubstituteVar 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve system of equations"@en;
-                                mathp:requiresKnowledge mathr:makeSubjectOfFormula,
-                                                                        mathr:substitute.
-
-mathr:factorizeNumberIntoPrimes 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Factorize number into prime numbers"@en.
-
-mathr:findAllFactors 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Find all factors"@en;
-                                mathp:requiresKnowledge mathr:primeFactorization.
-
-mathr:findHCF 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Find highest common factor"@en;
-                                mathp:requiresKnowledge mathr:primeFactorization.
-
-mathr:findLCM 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Find least common multiple"@en;
-                                mathp:requiresKnowledge mathr:primeFactorization.
-
-mathr:findLinesIntersectionPoint 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Find Lines Intersection Point"@en;
-                                mathp:requiresKnowledge mathr:plotGraphWithPointsTable,
-                                                                        mathr:solveSystemOfEquations.
-
-mathr:formulaIntegerDivision 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Formula of integer division"@en.
-
-mathr:makeSubjectOfFormula 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Make subject of formula"@en;
-                                mathp:requiresKnowledge mathr:moveTerms,
-                                                                          mathr:multiplyOutTheBrackets,
-                                                                          mathr:operateBothHandSidesOfEq,
-                                                                          mathr:collectLikeTerms.
-
-mathr:meanFormula 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Mean formula"@en.
-
-mathr:moveTerms 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Move terms to another side of equation"@en.
-
-mathr:multiplyOrDivideNumber 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Multiply or divide number"@en.
-
-mathr:multiplyOutTheBrackets 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Multiply out the brackets"@en.
-
-mathr:multNumerAndDenomByTheSame 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Mult or divide both numerator and denominator of fraction"@en.
-
-mathr:multOrDivideFractions 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Mult or divide fractions"@en.
-
-mathr:multOrDivideSumm 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Mult or divide summ"@en.
-
-mathr:operateBothHandSidesOfEq 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Do the same operation with both sides of equation"@en.
-
-mathr:operateDecimals 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Operate with decimals"@en.
-
-mathr:plotGraphWithPointsTable 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Plot graph with table of points"@en;
-                                mathp:requiresKnowledge mathr:substitute.
-
-mathr:primeFactorization 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Prime factorization task"@en.
-
-mathr:proveParallelism 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Prove parallelism of lines"@en.
-
-mathr:proveTrianglesCongruency 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Prove triangles congruency"@en.
-
-mathr:proveTrianglesSimilarity 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Prove triangles similarity"@en.
-
-mathr:pythagoreanRule 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Pythagorean rule"@en.
-
-mathr:raiseFractionToPower 	rdf:type 	mathc:Operation,
-				owl:NamedIndividual;
-		rdfs:label 	"Raise fraction to power"@en.
-
-mathr:reduceFraction 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Reduce fraction"@en.
-
-mathr:reflectFigure 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Reflect figure"@en.
-
-mathr:rotateFigure 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Rotate figure"@en.
-
-mathr:ruleOddEven 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Odd and even rules"@en.
-
-mathr:ruleOperationsOrder 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Operations order rule"@en.
-
-mathr:ruleOppositeAnglesOfInscribedQuadrilateral 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Opposite angles of inscribed quadrilateral"@en.
-
-mathr:ruleOppositeSidesOfCircumscribedQuadrilaterals 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Opposite sides of circumscribed quadrilaterals"@en.
-
-mathr:ruleParallelismAndEqualAngles 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Parallelism and equal angles"@en.
-
-mathr:ruleParallelismAndSupplementaryAngles 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Parallelism and supplementary angles"@en.
-
-mathr:ruleTriangleCongruence 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Criteria of triangle congruence"@en.
-
-mathr:ruleTriangleSimilarity 	rdf:type 	mathc:Rule,
-				owl:NamedIndividual;
-		rdfs:label 	"Criteria of triangle similarity"@en.
-
-mathr:shortMultiplication 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Short multiplication formulae"@en.
-
-mathr:sineRule 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Sine rule"@en.
-
-mathr:solveEqWithFractions 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve equation with fractions"@en.
-
-mathr:solveEqWithRoots 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve equation, containing roots"@en.
-
-mathr:solveLinearEquation 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve linear equation"@en.
-
-mathr:solveLinearInequality 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve linear inequality"@en.
-
-mathr:solveQuadInequality 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve quadratic inequality"@en.
-
-mathr:solveQuadraticEq 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve quadratic equation"@en.
-
-mathr:solveSystemOfEquations 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve system of equations"@en;
-                                mathp:requiresKnowledge mathr:expressAndSubstituteVar,
-                                                                          mathr:eliminateVar.
-
-mathr:solveTriangle 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Solve triangle"@en.
-
-mathr:substitute 	rdf:type 	mathc:Operation,
-                                                owl:NamedIndividual;
-		rdfs:label 	"Substitute instead of"@en.
-
-mathr:surfaceAreaOfCone 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Cone surface area"@en.
-
-mathr:surfaceAreaOfCube 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Cube surface area"@en.
-
-mathr:surfaceAreaOfCylinder 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Cylinder surface area"@en.
-
-mathr:surfaceAreaOfSphere 	rdf:type 	mathc:Formula,
-				owl:NamedIndividual;
-		rdfs:label 	"Sphere surface area"@en.
-
-mathr:transformQuadEqToSquare 	rdf:type 	mathc:AlgebraicTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Transform quadratic equation to square"@en.
-
-mathr:translateFigure 	rdf:type 	mathc:GeometricTask,
-				owl:NamedIndividual;
-		rdfs:label 	"Translate figure"@en.
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mathc: <http://ontology.tom.ru/classes/> .
+@prefix mathp: <http://ontology.tom.ru/properties/> .
+@prefix mathr: <http://ontology.tom.ru/resources/> .
+
+_:genid12314608 a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2000/01/rdf-schema#label
+
+rdfs:label rdfs:label "Label"@ru .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://ontology.tom.ru/properties/requiresHaving
+
+mathp:requiresHaving a owl:ObjectProperty ;
+	rdfs:label "Requires Having"@en .
+# 
+# http://ontology.tom.ru/properties/requiresKnowledge
+
+mathp:requiresKnowledge a owl:ObjectProperty ;
+	rdfs:label "Requires Knowledge"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://ontology.tom.ru/classes/AlgebraicTask
+
+mathc:AlgebraicTask a owl:Class ;
+	rdfs:subClassOf mathc:Task ;
+	rdfs:label "Algebraic task"@en .
+# 
+# http://ontology.tom.ru/classes/Formula
+
+mathc:Formula a owl:Class ;
+	rdfs:label "Formula"@en .
+# 
+# http://ontology.tom.ru/classes/GeometricTask
+
+mathc:GeometricTask a owl:Class ;
+	rdfs:subClassOf mathc:Task ;
+	rdfs:label "Geometric task"@en .
+# 
+# http://ontology.tom.ru/classes/Operation
+
+mathc:Operation a owl:Class ;
+	rdfs:label "Operation"@en .
+# 
+# http://ontology.tom.ru/classes/ProbabilityTask
+
+mathc:ProbabilityTask a owl:Class ;
+	rdfs:subClassOf mathc:Task ;
+	rdfs:label "Probability task"@en .
+# 
+# http://ontology.tom.ru/classes/Rule
+
+mathc:Rule a owl:Class ;
+	rdfs:label "Rule"@en .
+# 
+# http://ontology.tom.ru/classes/StatisticTask
+
+mathc:StatisticTask a owl:Class ;
+	rdfs:subClassOf mathc:Task ;
+	rdfs:label "Statistic task"@en .
+# 
+# http://ontology.tom.ru/classes/Task
+
+mathc:Task a owl:Class ;
+	rdfs:label "Task"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://ontology.tom.ru/resources/addOrSubbFractions
+
+mathr:addOrSubbFractions a owl:NamedIndividual , mathc:Operation ;
+	mathp:requiresKnowledge mathr:convertFracsToTheSameDenom ;
+	rdfs:label "Add or subb fractions"@en .
+# 
+# http://ontology.tom.ru/resources/addOrSubbNumber
+
+mathr:addOrSubbNumber a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Add or subb number"@en .
+# 
+# http://ontology.tom.ru/resources/areaOfCircle
+
+mathr:areaOfCircle a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Area of circle"@en .
+# 
+# http://ontology.tom.ru/resources/areaOfCircumscribedQuadrilateral
+
+mathr:areaOfCircumscribedQuadrilateral a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Area of circumscribed quadrilateral"@en .
+# 
+# http://ontology.tom.ru/resources/areaOfParallelogram
+
+mathr:areaOfParallelogram a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Area of parallelogram"@en .
+# 
+# http://ontology.tom.ru/resources/areaOfRectangle
+
+mathr:areaOfRectangle a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Area of rectangle"@en .
+# 
+# http://ontology.tom.ru/resources/areaOfRegularPolygon
+
+mathr:areaOfRegularPolygon a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Area of regular polygon"@en .
+# 
+# http://ontology.tom.ru/resources/areaOfTrapezoid
+
+mathr:areaOfTrapezoid a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Trapezoid area"@en .
+# 
+# http://ontology.tom.ru/resources/areaOfTriangle
+
+mathr:areaOfTriangle a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Area of triangle"@en .
+# 
+# http://ontology.tom.ru/resources/calculateBearing
+
+mathr:calculateBearing a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Calculate bearing"@en .
+# 
+# http://ontology.tom.ru/resources/calculateComplementaryAngle
+
+mathr:calculateComplementaryAngle a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Calculate complementary angle"@en .
+# 
+# http://ontology.tom.ru/resources/calculateDomainOfFunction
+
+mathr:calculateDomainOfFunction a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Calculate Function's domain"@en .
+# 
+# http://ontology.tom.ru/resources/calculateIntersectionPointOfGraphs
+
+mathr:calculateIntersectionPointOfGraphs a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Calculate intersection point of graphs"@en .
+# 
+# http://ontology.tom.ru/resources/calculateMean
+
+mathr:calculateMean a owl:NamedIndividual , mathc:StatisticTask ;
+	mathp:requiresKnowledge mathr:sameDistanceSeriesMean ;
+	rdfs:label "Calculate mean"@en .
+# 
+# http://ontology.tom.ru/resources/calculateMedian
+
+mathr:calculateMedian a owl:NamedIndividual , mathc:StatisticTask ;
+	rdfs:label "Calculate median"@en .
+# 
+# http://ontology.tom.ru/resources/calculateMode
+
+mathr:calculateMode a owl:NamedIndividual , mathc:StatisticTask ;
+	rdfs:label "Calculate mode"@en .
+# 
+# http://ontology.tom.ru/resources/calculatePercentage
+
+mathr:calculatePercentage a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Calculate percentage"@en .
+# 
+# http://ontology.tom.ru/resources/calculatePieChartSectorAngle
+
+mathr:calculatePieChartSectorAngle a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Calculate pie chart sector angle"@en .
+# 
+# http://ontology.tom.ru/resources/calculateProportion
+
+mathr:calculateProportion a owl:NamedIndividual , mathc:Operation ;
+	mathp:requiresKnowledge mathr:directOrInverseProportionRule ;
+	rdfs:label "Calculate proportion"@en .
+# 
+# http://ontology.tom.ru/resources/calculateRange
+
+mathr:calculateRange a owl:NamedIndividual , mathc:StatisticTask ;
+	rdfs:label "Calculate range"@en .
+# 
+# http://ontology.tom.ru/resources/calculateRatio
+
+mathr:calculateRatio a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Calculate ratio"@en .
+# 
+# http://ontology.tom.ru/resources/calculateSupplementaryAngle
+
+mathr:calculateSupplementaryAngle a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Calculate supplementary angle"@en .
+# 
+# http://ontology.tom.ru/resources/checkIfDivisible
+
+mathr:checkIfDivisible a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:divisibility , mathr:formulaIntegerDivision ;
+	rdfs:label "Check if number is divisible by something"@en .
+# 
+# http://ontology.tom.ru/resources/checkIfOddEven
+
+mathr:checkIfOddEven a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:formulaIntegerDivision , mathr:ruleOddEven ;
+	rdfs:label "Check if number is even or odd"@en .
+# 
+# http://ontology.tom.ru/resources/checkIfPointBelongsToGraph
+
+mathr:checkIfPointBelongsToGraph a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Check, if point belongs to graph"@en .
+# 
+# http://ontology.tom.ru/resources/checkIfPrime
+
+mathr:checkIfPrime a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:divisibility ;
+	rdfs:label "Check if number is prime"@en .
+# 
+# http://ontology.tom.ru/resources/collectLikeTerms
+
+mathr:collectLikeTerms a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Collect like terms"@en .
+# 
+# http://ontology.tom.ru/resources/compareFractions
+
+mathr:compareFractions a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Compare fractions"@en .
+# 
+# http://ontology.tom.ru/resources/compareFractionsDifferentDenom
+
+mathr:compareFractionsDifferentDenom a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Compare fractions with different denominators"@en .
+# 
+# http://ontology.tom.ru/resources/convertDecimalToFraction
+
+mathr:convertDecimalToFraction a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Convert decimal to fraction"@en .
+# 
+# http://ontology.tom.ru/resources/convertFracsToTheSameDenom
+
+mathr:convertFracsToTheSameDenom a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:findLCM , mathr:ruleMultBothNumAndDenom ;
+	rdfs:label "Convert fraction to have the same denominators"@en .
+# 
+# http://ontology.tom.ru/resources/convertPercentToFraction
+
+mathr:convertPercentToFraction a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:convertDecimalToFraction ;
+	rdfs:label "Convert percent to fraction"@en .
+# 
+# http://ontology.tom.ru/resources/convertUnits
+
+mathr:convertUnits a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Convert units"@en .
+# 
+# http://ontology.tom.ru/resources/cosineRule
+
+mathr:cosineRule a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Cosine rule"@en .
+# 
+# http://ontology.tom.ru/resources/directOrInverseProportionRule
+
+mathr:directOrInverseProportionRule a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Direct or inverse proportion rule"@en .
+# 
+# http://ontology.tom.ru/resources/divideByDecimal
+
+mathr:divideByDecimal a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:ruleMultBothNumAndDenom ;
+	rdfs:label "Divide by decimal"@en .
+# 
+# http://ontology.tom.ru/resources/divisibility
+
+mathr:divisibility a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Divisibility rules"@en .
+# 
+# http://ontology.tom.ru/resources/eliminateSurdInDenom
+
+mathr:eliminateSurdInDenom a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Eliminate surd in denominator"@en .
+# 
+# http://ontology.tom.ru/resources/eliminateVar
+
+mathr:eliminateVar a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:operateBothHandSidesOfEq ;
+	rdfs:label "Eliminate variable"@en .
+# 
+# http://ontology.tom.ru/resources/enlargeFigure
+
+mathr:enlargeFigure a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Enlarge figure"@en .
+# 
+# http://ontology.tom.ru/resources/estimateNumberOfEvents
+
+mathr:estimateNumberOfEvents a owl:NamedIndividual , mathc:ProbabilityTask ;
+	mathp:requiresKnowledge mathr:findEventProbability ;
+	rdfs:label "Estimate number of events"@en .
+# 
+# http://ontology.tom.ru/resources/expressAndSubstituteVar
+
+mathr:expressAndSubstituteVar a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:makeSubjectOfFormula , mathr:substitute ;
+	rdfs:label "Express and substitute variable"@en .
+# 
+# http://ontology.tom.ru/resources/factorizeNumberIntoPrimes
+
+mathr:factorizeNumberIntoPrimes a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Factorize number into prime numbers"@en .
+# 
+# http://ontology.tom.ru/resources/findAllFactors
+
+mathr:findAllFactors a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:primeFactorization ;
+	rdfs:label "Find all factors"@en .
+# 
+# http://ontology.tom.ru/resources/findEventProbability
+
+mathr:findEventProbability a owl:NamedIndividual , mathc:ProbabilityTask ;
+	rdfs:label "Find probability of event"@en .
+# 
+# http://ontology.tom.ru/resources/findHCF
+
+mathr:findHCF a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:primeFactorization ;
+	rdfs:label "Find highest common factor"@en .
+# 
+# http://ontology.tom.ru/resources/findLCM
+
+mathr:findLCM a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:primeFactorization ;
+	rdfs:label "Find least common multiple"@en .
+# 
+# http://ontology.tom.ru/resources/findLinesIntersectionPoint
+
+mathr:findLinesIntersectionPoint a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:plotGraphWithPointsTable , mathr:solveSystemOfEquations ;
+	rdfs:label "Find Lines Intersection Point"@en .
+# 
+# http://ontology.tom.ru/resources/findNumberUsingMean
+
+mathr:findNumberUsingMean a owl:NamedIndividual , mathc:StatisticTask ;
+	mathp:requiresKnowledge mathr:sameDistanceSeriesMean ;
+	rdfs:label "Find numbers using their mean"@en .
+# 
+# http://ontology.tom.ru/resources/findOrderOfRotationalSymmetry
+
+mathr:findOrderOfRotationalSymmetry a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Find order of rotational symmetry"@en .
+# 
+# http://ontology.tom.ru/resources/findPercentageChange
+
+mathr:findPercentageChange a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "findPercentageChange"@en .
+# 
+# http://ontology.tom.ru/resources/findRuleForSequence
+
+mathr:findRuleForSequence a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Find rule for sequence"@en .
+# 
+# http://ontology.tom.ru/resources/findSummOfInteriorAngles
+
+mathr:findSummOfInteriorAngles a owl:NamedIndividual , mathc:GeometricTask ;
+	mathp:requiresKnowledge mathr:summExeriorAngles , mathr:summTriangleAngles ;
+	rdfs:label "Find summ of interior angles"@en .
+# 
+# http://ontology.tom.ru/resources/findTermOfSequence
+
+mathr:findTermOfSequence a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:findRuleForSequence ;
+	rdfs:label "Find term of sequence"@en .
+# 
+# http://ontology.tom.ru/resources/formulaIntegerDivision
+
+mathr:formulaIntegerDivision a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Formula of integer division"@en .
+# 
+# http://ontology.tom.ru/resources/lastDigitOfSquare
+
+mathr:lastDigitOfSquare a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Last digit of square number"@en .
+# 
+# http://ontology.tom.ru/resources/makeSubjectOfFormula
+
+mathr:makeSubjectOfFormula a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:collectLikeTerms , mathr:moveTerms , mathr:multiplyOutTheBrackets , mathr:operateBothHandSidesOfEq ;
+	rdfs:label "Make subject of formula"@en .
+# 
+# http://ontology.tom.ru/resources/meanFormula
+
+mathr:meanFormula a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Mean formula"@en .
+# 
+# http://ontology.tom.ru/resources/moveTerms
+
+mathr:moveTerms a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Move terms to another side of equation"@en .
+# 
+# http://ontology.tom.ru/resources/multNumerAndDenomByTheSame
+
+mathr:multNumerAndDenomByTheSame a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Mult or divide both numerator and denominator of fraction"@en .
+# 
+# http://ontology.tom.ru/resources/multOrDivideFractions
+
+mathr:multOrDivideFractions a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Mult or divide fractions"@en .
+# 
+# http://ontology.tom.ru/resources/multOrDivideSumm
+
+mathr:multOrDivideSumm a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Mult or divide summ"@en .
+# 
+# http://ontology.tom.ru/resources/multiplyOrDivideNumber
+
+mathr:multiplyOrDivideNumber a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Multiply or divide number"@en .
+# 
+# http://ontology.tom.ru/resources/multiplyOutTheBrackets
+
+mathr:multiplyOutTheBrackets a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Multiply out the brackets"@en .
+# 
+# http://ontology.tom.ru/resources/operateBothHandSidesOfEq
+
+mathr:operateBothHandSidesOfEq a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Do the same operation with both sides of equation"@en .
+# 
+# http://ontology.tom.ru/resources/plotGraphWithPointsTable
+
+mathr:plotGraphWithPointsTable a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:substitute ;
+	rdfs:label "Plot graph with table of points"@en .
+# 
+# http://ontology.tom.ru/resources/primeFactorization
+
+mathr:primeFactorization a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:divisibility ;
+	rdfs:label "Prime factorization task"@en .
+# 
+# http://ontology.tom.ru/resources/proveParallelism
+
+mathr:proveParallelism a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Prove parallelism of lines"@en .
+# 
+# http://ontology.tom.ru/resources/proveTrianglesCongruency
+
+mathr:proveTrianglesCongruency a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Prove triangles congruency"@en .
+# 
+# http://ontology.tom.ru/resources/proveTrianglesSimilarity
+
+mathr:proveTrianglesSimilarity a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Prove triangles similarity"@en .
+# 
+# http://ontology.tom.ru/resources/pythagoreanRule
+
+mathr:pythagoreanRule a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Pythagorean rule"@en .
+# 
+# http://ontology.tom.ru/resources/raiseFractionToPower
+
+mathr:raiseFractionToPower a owl:NamedIndividual , mathc:Operation ;
+	mathp:requiresKnowledge mathr:raiseNumberToPower ;
+	rdfs:label "Raise fraction to power"@en .
+# 
+# http://ontology.tom.ru/resources/raiseNumberToPower
+
+mathr:raiseNumberToPower a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Raise number to power"@en .
+# 
+# http://ontology.tom.ru/resources/reduceFraction
+
+mathr:reduceFraction a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Reduce fraction"@en .
+# 
+# http://ontology.tom.ru/resources/reflectFigure
+
+mathr:reflectFigure a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Reflect figure"@en .
+# 
+# http://ontology.tom.ru/resources/rotateFigure
+
+mathr:rotateFigure a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Rotate figure"@en .
+# 
+# http://ontology.tom.ru/resources/roundNumber
+
+mathr:roundNumber a owl:NamedIndividual , mathc:Operation ;
+	mathp:requiresKnowledge mathr:roundToDecimalPlaceRule , mathr:roundToSignificantFigureRule ;
+	rdfs:label "Round the number"@en .
+# 
+# http://ontology.tom.ru/resources/roundToDecimalPlaceRule
+
+mathr:roundToDecimalPlaceRule a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Round to decimal place"@en .
+# 
+# http://ontology.tom.ru/resources/roundToSignificantFigureRule
+
+mathr:roundToSignificantFigureRule a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Round to significant figure"@en .
+# 
+# http://ontology.tom.ru/resources/ruleMultBothNumAndDenom
+
+mathr:ruleMultBothNumAndDenom a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Multiply both numerator and denominator"@en .
+# 
+# http://ontology.tom.ru/resources/ruleOddEven
+
+mathr:ruleOddEven a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Odd and even rules"@en .
+# 
+# http://ontology.tom.ru/resources/ruleOperationsOrder
+
+mathr:ruleOperationsOrder a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Operations order rule"@en .
+# 
+# http://ontology.tom.ru/resources/ruleOppositeAnglesOfInscribedQuadrilateral
+
+mathr:ruleOppositeAnglesOfInscribedQuadrilateral a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Opposite angles of inscribed quadrilateral"@en .
+# 
+# http://ontology.tom.ru/resources/ruleOppositeSidesOfCircumscribedQuadrilaterals
+
+mathr:ruleOppositeSidesOfCircumscribedQuadrilaterals a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Opposite sides of circumscribed quadrilaterals"@en .
+# 
+# http://ontology.tom.ru/resources/ruleParallelismAndEqualAngles
+
+mathr:ruleParallelismAndEqualAngles a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Parallelism and equal angles"@en .
+# 
+# http://ontology.tom.ru/resources/ruleParallelismAndSupplementaryAngles
+
+mathr:ruleParallelismAndSupplementaryAngles a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Parallelism and supplementary angles"@en .
+# 
+# http://ontology.tom.ru/resources/ruleTriangleCongruence
+
+mathr:ruleTriangleCongruence a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Criteria of triangle congruence"@en .
+# 
+# http://ontology.tom.ru/resources/ruleTriangleSimilarity
+
+mathr:ruleTriangleSimilarity a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Criteria of triangle similarity"@en .
+# 
+# http://ontology.tom.ru/resources/sameDistanceSeriesMean
+
+mathr:sameDistanceSeriesMean a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Same distance series mean"@en .
+# 
+# http://ontology.tom.ru/resources/shortMultiplication
+
+mathr:shortMultiplication a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Short multiplication formulae"@en .
+# 
+# http://ontology.tom.ru/resources/sineRule
+
+mathr:sineRule a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Sine rule"@en .
+# 
+# http://ontology.tom.ru/resources/solveEqWithFractions
+
+mathr:solveEqWithFractions a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Solve equation with fractions"@en .
+# 
+# http://ontology.tom.ru/resources/solveEqWithRoots
+
+mathr:solveEqWithRoots a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Solve equation, containing roots"@en .
+# 
+# http://ontology.tom.ru/resources/solveLinearEquation
+
+mathr:solveLinearEquation a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:makeSubjectOfFormula , mathr:multiplyOutTheBrackets ;
+	rdfs:label "Solve linear equation"@en .
+# 
+# http://ontology.tom.ru/resources/solveLinearInequality
+
+mathr:solveLinearInequality a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Solve linear inequality"@en .
+# 
+# http://ontology.tom.ru/resources/solveQuadInequality
+
+mathr:solveQuadInequality a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Solve quadratic inequality"@en .
+# 
+# http://ontology.tom.ru/resources/solveQuadraticEq
+
+mathr:solveQuadraticEq a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Solve quadratic equation"@en .
+# 
+# http://ontology.tom.ru/resources/solveSystemOfEquations
+
+mathr:solveSystemOfEquations a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:eliminateVar , mathr:expressAndSubstituteVar ;
+	rdfs:label "Solve system of equations"@en .
+# 
+# http://ontology.tom.ru/resources/solveTriangle
+
+mathr:solveTriangle a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Solve triangle"@en .
+# 
+# http://ontology.tom.ru/resources/substitute
+
+mathr:substitute a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Substitute instead of"@en .
+# 
+# http://ontology.tom.ru/resources/summExeriorAngles
+
+mathr:summExeriorAngles a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Summ of exterior angles rule"@en .
+# 
+# http://ontology.tom.ru/resources/summTriangleAngles
+
+mathr:summTriangleAngles a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Summ of triangle angles rule"@en .
+# 
+# http://ontology.tom.ru/resources/surfaceAreaOfCone
+
+mathr:surfaceAreaOfCone a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Cone surface area"@en .
+# 
+# http://ontology.tom.ru/resources/surfaceAreaOfCube
+
+mathr:surfaceAreaOfCube a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Cube surface area"@en .
+# 
+# http://ontology.tom.ru/resources/surfaceAreaOfCylinder
+
+mathr:surfaceAreaOfCylinder a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Cylinder surface area"@en .
+# 
+# http://ontology.tom.ru/resources/surfaceAreaOfSphere
+
+mathr:surfaceAreaOfSphere a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Sphere surface area"@en .
+# 
+# http://ontology.tom.ru/resources/transformQuadEqToSquare
+
+mathr:transformQuadEqToSquare a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Transform quadratic equation to square"@en .
+# 
+# http://ontology.tom.ru/resources/translateFigure
+
+mathr:translateFigure a owl:NamedIndividual , mathc:GeometricTask ;
+	rdfs:label "Translate figure"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+
+rdf:type rdfs:label "Type"@ru .
+# 
+# Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
