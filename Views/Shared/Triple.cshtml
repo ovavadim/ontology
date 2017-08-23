@@ -48,45 +48,49 @@
     </tr>
     @foreach (SparqlResult sr in Model)
     {
-        //Get details
-        string predicateName = KnowledgeBase.GetNodeString(@sr["predicate"]);
-        string objectName = KnowledgeBase.GetNodeString(@sr["object"]);
+        if (!sr["predicate"].ToString().ToLower().EndsWith("#comment"))
+        {
+            //Get details
+            string predicateName = KnowledgeBase.GetNodeString(@sr["predicate"]);
+            string objectName = KnowledgeBase.GetNodeString(@sr["object"]);
 
-        //Determine predicate URI
-        string predicateURI = sr["predicate"].ToString();
-        if (sr["predicate"].ToString().StartsWith(KnowledgeBase.hostURI))
-        { predicateURI = "/Predicates/" + predicateName;
-        }
-
-        //Determine object URI
-        string objectURI = sr["object"].ToString();
-        /*
-        if (sr["object"].ToString().StartsWith(KnowledgeBase.hostURI))
-        { objectURI = "/Resources/" + objectName;
-        }
-        */
-        
-
-        <tr>
-            <td><a href="@predicateURI">@KnowledgeBase.GetNodeString(@sr["predLabel"])</a></td>
-
-            @if (@sr["object"].NodeType == NodeType.Uri)
+            //Determine predicate URI
+            string predicateURI = sr["predicate"].ToString();
+            if (sr["predicate"].ToString().StartsWith(KnowledgeBase.hostURI))
             {
-                string label;
-                try
-                {
-                    label = KnowledgeBase.GetNodeString(@sr["objLabel"]);
-                }
-                catch (VDS.RDF.RdfException e)
-                {
-                    label = objectName;
-                }
-                <td><a href="@objectURI">@label</a></td>
+                predicateURI = "/Predicates/" + predicateName;
             }
-            else
-            {
-                <td>@objectName</td> 
+
+            //Determine object URI
+            string objectURI = sr["object"].ToString();
+            /*
+            if (sr["object"].ToString().StartsWith(KnowledgeBase.hostURI))
+            { objectURI = "/Resources/" + objectName;
             }
-       </tr>
-            }
+            */
+
+
+                <tr>
+                    <td><a href="@predicateURI">@KnowledgeBase.GetNodeString(@sr["predLabel"])</a></td>
+
+                    @if (@sr["object"].NodeType == NodeType.Uri)
+                    {
+                        string label;
+                        try
+                        {
+                            label = KnowledgeBase.GetNodeString(@sr["objLabel"]);
+                        }
+                        catch (VDS.RDF.RdfException e)
+                        {
+                            label = objectName;
+                        }
+                        <td><a href="@objectURI">@label</a></td>
+                    }
+                    else
+                    {
+                        <td>@objectName</td> 
+                    }
+               </tr>
+        }
+    }
 </table>

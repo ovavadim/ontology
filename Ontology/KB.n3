@@ -8,7 +8,7 @@
 @prefix mathp: <http://ontology.tom.ru/properties/> .
 @prefix mathr: <http://ontology.tom.ru/resources/> .
 
-_:genid12314608 a owl:Ontology .
+_:genid9175014 a owl:Ontology .
 # 
 # 
 # #################################################################
@@ -20,7 +20,8 @@ _:genid12314608 a owl:Ontology .
 # 
 # http://www.w3.org/2000/01/rdf-schema#label
 
-rdfs:label rdfs:label "Label"@ru .
+rdfs:label rdfs:label "Label"@en .
+rdfs:comment rdfs:label "Comment"@en .
 # 
 # 
 # 
@@ -103,6 +104,11 @@ mathc:Task a owl:Class ;
 # #################################################################
 # 
 # 
+# http://ontology.tom.ru/resources/addOrSubbEqOrIneq
+
+mathr:addOrSubbEqOrIneq a owl:NamedIndividual , mathc:Operation ;
+	rdfs:label "Add or subtract equations or inequalities"@en .
+# 
 # http://ontology.tom.ru/resources/addOrSubbFractions
 
 mathr:addOrSubbFractions a owl:NamedIndividual , mathc:Operation ;
@@ -164,6 +170,12 @@ mathr:calculateComplementaryAngle a owl:NamedIndividual , mathc:GeometricTask ;
 mathr:calculateDomainOfFunction a owl:NamedIndividual , mathc:AlgebraicTask ;
 	rdfs:label "Calculate Function's domain"@en .
 # 
+# http://ontology.tom.ru/resources/calculateGivenPercentageOfNumber
+
+mathr:calculateGivenPercentageOfNumber a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:convertFractionOrDecimalToPercent ;
+	rdfs:label "Calculate given percentage of number"@en .
+# 
 # http://ontology.tom.ru/resources/calculateIntersectionPointOfGraphs
 
 mathr:calculateIntersectionPointOfGraphs a owl:NamedIndividual , mathc:AlgebraicTask ;
@@ -184,6 +196,11 @@ mathr:calculateMedian a owl:NamedIndividual , mathc:StatisticTask ;
 
 mathr:calculateMode a owl:NamedIndividual , mathc:StatisticTask ;
 	rdfs:label "Calculate mode"@en .
+# 
+# http://ontology.tom.ru/resources/calculateNumberIsPercentOfWhatNumber
+
+mathr:calculateNumberIsPercentOfWhatNumber a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Calculate given number is given percent of what number"@en .
 # 
 # http://ontology.tom.ru/resources/calculatePercentage
 
@@ -216,6 +233,12 @@ mathr:calculateRatio a owl:NamedIndividual , mathc:AlgebraicTask ;
 mathr:calculateSupplementaryAngle a owl:NamedIndividual , mathc:GeometricTask ;
 	rdfs:label "Calculate supplementary angle"@en .
 # 
+# http://ontology.tom.ru/resources/calculateWhatPercentOfNumberIsNumber
+
+mathr:calculateWhatPercentOfNumberIsNumber a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:convertFractionOrDecimalToPercent ;
+	rdfs:label "Express one number as a percentage of another"@en .
+# 
 # http://ontology.tom.ru/resources/checkIfDivisible
 
 mathr:checkIfDivisible a owl:NamedIndividual , mathc:AlgebraicTask ;
@@ -236,13 +259,19 @@ mathr:checkIfPointBelongsToGraph a owl:NamedIndividual , mathc:AlgebraicTask ;
 # http://ontology.tom.ru/resources/checkIfPrime
 
 mathr:checkIfPrime a owl:NamedIndividual , mathc:AlgebraicTask ;
-	mathp:requiresKnowledge mathr:divisibility ;
+	mathp:requiresKnowledge mathr:divisibility , mathr:primeNumberCriterion ;
 	rdfs:label "Check if number is prime"@en .
 # 
 # http://ontology.tom.ru/resources/collectLikeTerms
 
 mathr:collectLikeTerms a owl:NamedIndividual , mathc:AlgebraicTask ;
 	rdfs:label "Collect like terms"@en .
+# 
+# http://ontology.tom.ru/resources/compareFractionAndDecimal
+
+mathr:compareFractionAndDecimal a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:convertDecimalToFraction , mathr:convertFractionToDecimal ;
+	rdfs:label "Compare fraction and decimal"@en .
 # 
 # http://ontology.tom.ru/resources/compareFractions
 
@@ -256,7 +285,7 @@ mathr:compareFractionsDifferentDenom a owl:NamedIndividual , mathc:AlgebraicTask
 # 
 # http://ontology.tom.ru/resources/convertDecimalToFraction
 
-mathr:convertDecimalToFraction a owl:NamedIndividual , mathc:Operation ;
+mathr:convertDecimalToFraction a owl:NamedIndividual , mathc:AlgebraicTask ;
 	rdfs:label "Convert decimal to fraction"@en .
 # 
 # http://ontology.tom.ru/resources/convertFracsToTheSameDenom
@@ -264,6 +293,16 @@ mathr:convertDecimalToFraction a owl:NamedIndividual , mathc:Operation ;
 mathr:convertFracsToTheSameDenom a owl:NamedIndividual , mathc:AlgebraicTask ;
 	mathp:requiresKnowledge mathr:findLCM , mathr:ruleMultBothNumAndDenom ;
 	rdfs:label "Convert fraction to have the same denominators"@en .
+# 
+# http://ontology.tom.ru/resources/convertFractionOrDecimalToPercent
+
+mathr:convertFractionOrDecimalToPercent a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Convert fraction or decimal to percent"@en .
+# 
+# http://ontology.tom.ru/resources/convertFractionToDecimal
+
+mathr:convertFractionToDecimal a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Convert fraction to decimal"@en .
 # 
 # http://ontology.tom.ru/resources/convertPercentToFraction
 
@@ -305,7 +344,7 @@ mathr:eliminateSurdInDenom a owl:NamedIndividual , mathc:AlgebraicTask ;
 # http://ontology.tom.ru/resources/eliminateVar
 
 mathr:eliminateVar a owl:NamedIndividual , mathc:AlgebraicTask ;
-	mathp:requiresKnowledge mathr:operateBothHandSidesOfEq ;
+	mathp:requiresKnowledge mathr:addOrSubbEqOrIneq , mathr:operateBothHandSidesOfEq ;
 	rdfs:label "Eliminate variable"@en .
 # 
 # http://ontology.tom.ru/resources/enlargeFigure
@@ -352,6 +391,31 @@ mathr:findHCF a owl:NamedIndividual , mathc:AlgebraicTask ;
 mathr:findLCM a owl:NamedIndividual , mathc:AlgebraicTask ;
 	mathp:requiresKnowledge mathr:primeFactorization ;
 	rdfs:label "Find least common multiple"@en .
+	
+	
+mathr:findDistanceBetweenTwoPoints a owl:NamedIndividual , mathc:GeometricTask ;
+	mathp:requiresKnowledge mathr:pythagoreanRule;
+	rdfs:label "Find distance between 2 points"@en .
+	
+
+mathr:findPointDividingLineInRatio a owl:NamedIndividual , mathc:GeometricTask ;
+	mathp:requiresKnowledge mathr:findFromSimilarity, mathr:pointDividingLineInRatioFormula ;
+	rdfs:label "Find point dividing line in a given ratio"@en .
+
+mathr:pointDividingLineInRatioFormula a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Formula of point dividing line in a given ratio"@en .
+
+	
+mathr:findFromSimilarity a owl:NamedIndividual , mathc:GeometricTask ;
+	mathp:requiresKnowledge mathr:ruleTriangleSimilarity ;
+	rdfs:label "Find side from similarity"@en .	
+	
+# 
+# http://ontology.tom.ru/resources/findLineEquationTwoPoints
+
+mathr:findLineEquationTwoPoints a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:findSlopeCoefficientTwoPoints , mathr:solveSystemOfEquations ;
+	rdfs:label "Find equation of Line using 2 points"@en .
 # 
 # http://ontology.tom.ru/resources/findLinesIntersectionPoint
 
@@ -370,15 +434,32 @@ mathr:findNumberUsingMean a owl:NamedIndividual , mathc:StatisticTask ;
 mathr:findOrderOfRotationalSymmetry a owl:NamedIndividual , mathc:GeometricTask ;
 	rdfs:label "Find order of rotational symmetry"@en .
 # 
+# http://ontology.tom.ru/resources/findParallelLineEquationOnePoint
+
+mathr:findParallelLineEquationOnePoint a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:slopeCoefficientsRules ;
+	rdfs:label "Find equation of parallel line using 1 point"@en .
+# 
 # http://ontology.tom.ru/resources/findPercentageChange
 
 mathr:findPercentageChange a owl:NamedIndividual , mathc:AlgebraicTask ;
-	rdfs:label "findPercentageChange"@en .
+	rdfs:label "Find percentage change"@en .
+# 
+# http://ontology.tom.ru/resources/findPerpendicularLineEquationOnePoint
+
+mathr:findPerpendicularLineEquationOnePoint a owl:NamedIndividual , mathc:AlgebraicTask ;
+	mathp:requiresKnowledge mathr:slopeCoefficientsRules ;
+	rdfs:label "Find equation of perpendicular line using 1 point"@en .
 # 
 # http://ontology.tom.ru/resources/findRuleForSequence
 
 mathr:findRuleForSequence a owl:NamedIndividual , mathc:AlgebraicTask ;
 	rdfs:label "Find rule for sequence"@en .
+# 
+# http://ontology.tom.ru/resources/findSlopeCoefficientTwoPoints
+
+mathr:findSlopeCoefficientTwoPoints a owl:NamedIndividual , mathc:Formula ;
+	rdfs:label "Find slope coefficient of line using 2 points"@en .
 # 
 # http://ontology.tom.ru/resources/findSummOfInteriorAngles
 
@@ -396,6 +477,16 @@ mathr:findTermOfSequence a owl:NamedIndividual , mathc:AlgebraicTask ;
 
 mathr:formulaIntegerDivision a owl:NamedIndividual , mathc:Formula ;
 	rdfs:label "Formula of integer division"@en .
+# 
+# http://ontology.tom.ru/resources/indexRules
+
+mathr:indexRules a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Index rules"@en .
+# 
+# http://ontology.tom.ru/resources/interpretDiagram
+
+mathr:interpretDiagram a owl:NamedIndividual , mathc:StatisticTask ;
+	rdfs:label "Interpret a diagram"@en .
 # 
 # http://ontology.tom.ru/resources/lastDigitOfSquare
 
@@ -459,6 +550,11 @@ mathr:plotGraphWithPointsTable a owl:NamedIndividual , mathc:AlgebraicTask ;
 mathr:primeFactorization a owl:NamedIndividual , mathc:AlgebraicTask ;
 	mathp:requiresKnowledge mathr:divisibility ;
 	rdfs:label "Prime factorization task"@en .
+# 
+# http://ontology.tom.ru/resources/primeNumberCriterion
+
+mathr:primeNumberCriterion a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Prime number criterion"@en .
 # 
 # http://ontology.tom.ru/resources/proveParallelism
 
@@ -577,10 +673,20 @@ mathr:sameDistanceSeriesMean a owl:NamedIndividual , mathc:Rule ;
 mathr:shortMultiplication a owl:NamedIndividual , mathc:Formula ;
 	rdfs:label "Short multiplication formulae"@en .
 # 
+# http://ontology.tom.ru/resources/simplifyComplexFraction
+
+mathr:simplifyComplexFraction a owl:NamedIndividual , mathc:AlgebraicTask ;
+	rdfs:label "Simplify complex fraction"@en .
+# 
 # http://ontology.tom.ru/resources/sineRule
 
 mathr:sineRule a owl:NamedIndividual , mathc:Formula ;
 	rdfs:label "Sine rule"@en .
+# 
+# http://ontology.tom.ru/resources/slopeCoefficientsRules
+
+mathr:slopeCoefficientsRules a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Slope coefficients rules"@en .
 # 
 # http://ontology.tom.ru/resources/solveEqWithFractions
 
@@ -623,6 +729,11 @@ mathr:solveSystemOfEquations a owl:NamedIndividual , mathc:AlgebraicTask ;
 
 mathr:solveTriangle a owl:NamedIndividual , mathc:GeometricTask ;
 	rdfs:label "Solve triangle"@en .
+# 
+# http://ontology.tom.ru/resources/standardFormRule
+
+mathr:standardFormRule a owl:NamedIndividual , mathc:Rule ;
+	rdfs:label "Standard form rule"@en .
 # 
 # http://ontology.tom.ru/resources/substitute
 
@@ -679,6 +790,6 @@ mathr:translateFigure a owl:NamedIndividual , mathc:GeometricTask ;
 # 
 # 
 
-rdf:type rdfs:label "Type"@ru .
+rdf:type rdfs:label "Type"@en .
 # 
 # Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
